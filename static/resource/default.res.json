@@ -1,0 +1,378 @@
+{
+	"groups": [
+		{
+			"keys": "background_png,default_frame_backward_png,newton_avatar_sample_png,newton_frame_backward_png,newton_frame_forward_png,male_default_ske_json,male_default_tex_json,male_default_tex_png,male_decoration_cloth_ske_json,male_decoration_cloth_tex_json,male_decoration_cloth_tex_png,male_down_cloth_ske_json,male_down_cloth_tex_json,male_down_cloth_tex_png,male_down_cloth_1_ske_json,male_down_cloth_1_tex_json,male_down_cloth_1_tex_png,male_head_cloth_ske_json,male_head_cloth_tex_json,male_head_cloth_tex_png,male_head_cloth_1_ske_json,male_head_cloth_1_tex_json,male_head_cloth_1_tex_png,male_pet_cloth_ske_json,male_pet_cloth_tex_json,male_pet_cloth_tex_png,male_shoe_cloth_ske_json,male_shoe_cloth_tex_json,male_shoe_cloth_tex_png,male_shoe_cloth_1_ske_json,male_shoe_cloth_1_tex_json,male_shoe_cloth_1_tex_png,male_up_cloth_ske_json,male_up_cloth_tex_json,male_up_cloth_tex_png,male_up_cloth_1_ske_json,male_up_cloth_1_tex_json,male_up_cloth_1_tex_png,female_default_ske_json,female_default_tex_json,female_default_tex_png,female_decoration_cloth_ske_json,female_decoration_cloth_tex_json,female_decoration_cloth_tex_png,female_down_cloth_ske_json,female_down_cloth_tex_json,female_down_cloth_tex_png,female_down_cloth_1_ske_json,female_down_cloth_1_tex_json,female_down_cloth_1_tex_png,female_head_cloth_ske_json,female_head_cloth_tex_json,female_head_cloth_tex_png,female_head_cloth_1_ske_json,female_head_cloth_1_tex_json,female_head_cloth_1_tex_png,female_pet_cloth_ske_json,female_pet_cloth_tex_json,female_pet_cloth_tex_png,female_shoe_cloth_ske_json,female_shoe_cloth_tex_json,female_shoe_cloth_tex_png,female_shoe_cloth_1_ske_json,female_shoe_cloth_1_tex_json,female_shoe_cloth_1_tex_png,female_up_cloth_ske_json,female_up_cloth_tex_json,female_up_cloth_tex_png,female_up_cloth_1_ske_json,female_up_cloth_1_tex_json,female_up_cloth_1_tex_png,clothes_background_default_png",
+			"name": "preload"
+		},
+		{
+			"keys": "default_frame_backward_png,female_default_tex_png,female_default_tex_json,female_default_ske_json,female_up_cloth_1_ske_json,female_up_cloth_1_tex_json,female_up_cloth_1_tex_png,female_up_cloth_ske_json,female_up_cloth_tex_json,female_up_cloth_tex_png,female_shoe_cloth_1_ske_json,female_shoe_cloth_1_tex_json,female_shoe_cloth_1_tex_png,female_shoe_cloth_ske_json,female_shoe_cloth_tex_json,female_shoe_cloth_tex_png,female_pet_cloth_ske_json,female_pet_cloth_tex_json,female_pet_cloth_tex_png,female_head_cloth_1_ske_json,female_head_cloth_1_tex_json,female_head_cloth_1_tex_png,female_head_cloth_ske_json,female_head_cloth_tex_json,female_head_cloth_tex_png,female_down_cloth_1_ske_json,female_down_cloth_1_tex_json,female_down_cloth_1_tex_png,female_down_cloth_ske_json,female_down_cloth_tex_json,female_down_cloth_tex_png,female_decoration_cloth_ske_json,female_decoration_cloth_tex_json,female_decoration_cloth_tex_png,clothes_background_default_png",
+			"name": "female"
+		},
+		{
+			"keys": "default_frame_backward_png,male_decoration_cloth_ske_json,male_decoration_cloth_tex_json,male_decoration_cloth_tex_png,male_down_cloth_ske_json,male_down_cloth_tex_json,male_down_cloth_tex_png,male_down_cloth_1_ske_json,male_down_cloth_1_tex_json,male_down_cloth_1_tex_png,male_head_cloth_ske_json,male_head_cloth_tex_json,male_head_cloth_tex_png,male_head_cloth_1_ske_json,male_head_cloth_1_tex_json,male_head_cloth_1_tex_png,male_pet_cloth_ske_json,male_pet_cloth_tex_json,male_pet_cloth_tex_png,male_shoe_cloth_ske_json,male_shoe_cloth_tex_json,male_shoe_cloth_tex_png,male_shoe_cloth_1_ske_json,male_shoe_cloth_1_tex_json,male_shoe_cloth_1_tex_png,male_up_cloth_ske_json,male_up_cloth_tex_json,male_up_cloth_tex_png,male_up_cloth_1_ske_json,male_up_cloth_1_tex_json,male_up_cloth_1_tex_png,male_default_ske_json,male_default_tex_json,male_default_tex_png,clothes_background_default_png",
+			"name": "male"
+		}
+	],
+	"resources": [
+		{
+			"url": "art/background.png",
+			"type": "image",
+			"name": "background_png"
+		},
+		{
+			"url": "art/default_frame_backward.png",
+			"type": "image",
+			"name": "default_frame_backward_png"
+		},
+		{
+			"url": "art/newton_avatar_sample.png",
+			"type": "image",
+			"name": "newton_avatar_sample_png"
+		},
+		{
+			"url": "art/newton_frame_backward.png",
+			"type": "image",
+			"name": "newton_frame_backward_png"
+		},
+		{
+			"url": "art/newton_frame_forward.png",
+			"type": "image",
+			"name": "newton_frame_forward_png"
+		},
+		{
+			"url": "bone/male_default_ske.json",
+			"type": "json",
+			"name": "male_default_ske_json"
+		},
+		{
+			"url": "bone/male_default_tex.json",
+			"type": "json",
+			"name": "male_default_tex_json"
+		},
+		{
+			"url": "bone/male_default_tex.png",
+			"type": "image",
+			"name": "male_default_tex_png"
+		},
+		{
+			"url": "bone/bone/male/decoration_cloth/male_decoration_cloth_ske.json",
+			"type": "json",
+			"name": "male_decoration_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/male/decoration_cloth/male_decoration_cloth_tex.json",
+			"type": "json",
+			"name": "male_decoration_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/male/decoration_cloth/male_decoration_cloth_tex.png",
+			"type": "image",
+			"name": "male_decoration_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/male/down_cloth/male_down_cloth_ske.json",
+			"type": "json",
+			"name": "male_down_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/male/down_cloth/male_down_cloth_tex.json",
+			"type": "json",
+			"name": "male_down_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/male/down_cloth/male_down_cloth_tex.png",
+			"type": "image",
+			"name": "male_down_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/male/down_cloth_1/male_down_cloth_1_ske.json",
+			"type": "json",
+			"name": "male_down_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/male/down_cloth_1/male_down_cloth_1_tex.json",
+			"type": "json",
+			"name": "male_down_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/male/down_cloth_1/male_down_cloth_1_tex.png",
+			"type": "image",
+			"name": "male_down_cloth_1_tex_png"
+		},
+		{
+			"url": "bone/bone/male/head_cloth/male_head_cloth_ske.json",
+			"type": "json",
+			"name": "male_head_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/male/head_cloth/male_head_cloth_tex.json",
+			"type": "json",
+			"name": "male_head_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/male/head_cloth/male_head_cloth_tex.png",
+			"type": "image",
+			"name": "male_head_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/male/head_cloth_1/male_head_cloth_1_ske.json",
+			"type": "json",
+			"name": "male_head_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/male/head_cloth_1/male_head_cloth_1_tex.json",
+			"type": "json",
+			"name": "male_head_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/male/head_cloth_1/male_head_cloth_1_tex.png",
+			"type": "image",
+			"name": "male_head_cloth_1_tex_png"
+		},
+		{
+			"url": "bone/bone/male/pet_cloth/male_pet_cloth_ske.json",
+			"type": "json",
+			"name": "male_pet_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/male/pet_cloth/male_pet_cloth_tex.json",
+			"type": "json",
+			"name": "male_pet_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/male/pet_cloth/male_pet_cloth_tex.png",
+			"type": "image",
+			"name": "male_pet_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/male/shoe_cloth/male_shoe_cloth_ske.json",
+			"type": "json",
+			"name": "male_shoe_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/male/shoe_cloth/male_shoe_cloth_tex.json",
+			"type": "json",
+			"name": "male_shoe_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/male/shoe_cloth/male_shoe_cloth_tex.png",
+			"type": "image",
+			"name": "male_shoe_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/male/shoe_cloth_1/male_shoe_cloth_1_ske.json",
+			"type": "json",
+			"name": "male_shoe_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/male/shoe_cloth_1/male_shoe_cloth_1_tex.json",
+			"type": "json",
+			"name": "male_shoe_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/male/shoe_cloth_1/male_shoe_cloth_1_tex.png",
+			"type": "image",
+			"name": "male_shoe_cloth_1_tex_png"
+		},
+		{
+			"url": "bone/bone/male/up_cloth/male_up_cloth_ske.json",
+			"type": "json",
+			"name": "male_up_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/male/up_cloth/male_up_cloth_tex.json",
+			"type": "json",
+			"name": "male_up_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/male/up_cloth/male_up_cloth_tex.png",
+			"type": "image",
+			"name": "male_up_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/male/up_cloth_1/male_up_cloth_1_ske.json",
+			"type": "json",
+			"name": "male_up_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/male/up_cloth_1/male_up_cloth_1_tex.json",
+			"type": "json",
+			"name": "male_up_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/male/up_cloth_1/male_up_cloth_1_tex.png",
+			"type": "image",
+			"name": "male_up_cloth_1_tex_png"
+		},
+		{
+			"url": "bone/female_default_ske.json",
+			"type": "json",
+			"name": "female_default_ske_json"
+		},
+		{
+			"url": "bone/female_default_tex.json",
+			"type": "json",
+			"name": "female_default_tex_json"
+		},
+		{
+			"url": "bone/female_default_tex.png",
+			"type": "image",
+			"name": "female_default_tex_png"
+		},
+		{
+			"url": "bone/bone/female/decoration_cloth/female_decoration_cloth_ske.json",
+			"type": "json",
+			"name": "female_decoration_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/female/decoration_cloth/female_decoration_cloth_tex.json",
+			"type": "json",
+			"name": "female_decoration_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/female/decoration_cloth/female_decoration_cloth_tex.png",
+			"type": "image",
+			"name": "female_decoration_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/female/down_cloth/female_down_cloth_ske.json",
+			"type": "json",
+			"name": "female_down_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/female/down_cloth/female_down_cloth_tex.json",
+			"type": "json",
+			"name": "female_down_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/female/down_cloth/female_down_cloth_tex.png",
+			"type": "image",
+			"name": "female_down_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/female/down_cloth_1/female_down_cloth_1_ske.json",
+			"type": "json",
+			"name": "female_down_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/female/down_cloth_1/female_down_cloth_1_tex.json",
+			"type": "json",
+			"name": "female_down_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/female/down_cloth_1/female_down_cloth_1_tex.png",
+			"type": "image",
+			"name": "female_down_cloth_1_tex_png"
+		},
+		{
+			"url": "bone/bone/female/head_cloth/female_head_cloth_ske.json",
+			"type": "json",
+			"name": "female_head_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/female/head_cloth/female_head_cloth_tex.json",
+			"type": "json",
+			"name": "female_head_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/female/head_cloth/female_head_cloth_tex.png",
+			"type": "image",
+			"name": "female_head_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/female/head_cloth_1/female_head_cloth_1_ske.json",
+			"type": "json",
+			"name": "female_head_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/female/head_cloth_1/female_head_cloth_1_tex.json",
+			"type": "json",
+			"name": "female_head_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/female/head_cloth_1/female_head_cloth_1_tex.png",
+			"type": "image",
+			"name": "female_head_cloth_1_tex_png"
+		},
+		{
+			"url": "bone/bone/female/pet_cloth/female_pet_cloth_ske.json",
+			"type": "json",
+			"name": "female_pet_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/female/pet_cloth/female_pet_cloth_tex.json",
+			"type": "json",
+			"name": "female_pet_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/female/pet_cloth/female_pet_cloth_tex.png",
+			"type": "image",
+			"name": "female_pet_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/female/shoe_cloth/female_shoe_cloth_ske.json",
+			"type": "json",
+			"name": "female_shoe_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/female/shoe_cloth/female_shoe_cloth_tex.json",
+			"type": "json",
+			"name": "female_shoe_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/female/shoe_cloth/female_shoe_cloth_tex.png",
+			"type": "image",
+			"name": "female_shoe_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/female/shoe_cloth_1/female_shoe_cloth_1_ske.json",
+			"type": "json",
+			"name": "female_shoe_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/female/shoe_cloth_1/female_shoe_cloth_1_tex.json",
+			"type": "json",
+			"name": "female_shoe_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/female/shoe_cloth_1/female_shoe_cloth_1_tex.png",
+			"type": "image",
+			"name": "female_shoe_cloth_1_tex_png"
+		},
+		{
+			"url": "bone/bone/female/up_cloth/female_up_cloth_ske.json",
+			"type": "json",
+			"name": "female_up_cloth_ske_json"
+		},
+		{
+			"url": "bone/bone/female/up_cloth/female_up_cloth_tex.json",
+			"type": "json",
+			"name": "female_up_cloth_tex_json"
+		},
+		{
+			"url": "bone/bone/female/up_cloth/female_up_cloth_tex.png",
+			"type": "image",
+			"name": "female_up_cloth_tex_png"
+		},
+		{
+			"url": "bone/bone/female/up_cloth_1/female_up_cloth_1_ske.json",
+			"type": "json",
+			"name": "female_up_cloth_1_ske_json"
+		},
+		{
+			"url": "bone/bone/female/up_cloth_1/female_up_cloth_1_tex.json",
+			"type": "json",
+			"name": "female_up_cloth_1_tex_json"
+		},
+		{
+			"url": "bone/bone/female/up_cloth_1/female_up_cloth_1_tex.png",
+			"type": "image",
+			"name": "female_up_cloth_1_tex_png"
+		},
+		{
+			"url": "art/clothes_background_default.png",
+			"type": "image",
+			"name": "clothes_background_default_png"
+		}
+	]
+}
