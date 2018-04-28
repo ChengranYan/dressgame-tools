@@ -1,13 +1,10 @@
 <template>
   <ul class="head-bar-con">
-    <!-- <router-link class="head-bar" :to="tab1" tag="li">
-          <span class="part">头部</span>
-        </router-link>
-        <router-link class="head-bar" :to="tab2" tag="li">
-          <span class="part">上衣</span>
-        </router-link> -->
     <router-link v-for="(part, index) in parts" class="head-bar" :to="part.to" tag="li" :key="index">
         <span class="part">{{ part.name }}</span>
+    </router-link>
+    <router-link  class="head-bar" :to="test.to" tag="li" :key="test.name">
+        <span class="part">{{ test.name }}</span>
     </router-link>
   </ul>
 </template>
@@ -38,12 +35,16 @@
           {
             name: '饰品',
             to: 'decorate'
-          },
-          {
-            name: '背景',
-            to: 'background'
           }
-        ]
+          // {
+          //   name: '背景',
+          //   to: 'background'
+          // }
+        ],
+        test: {
+          name: 'test',
+          to: 'test'
+        }
       }
     }
   }

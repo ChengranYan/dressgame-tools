@@ -11,7 +11,7 @@ import '@/assets/styles/base/reset.css'
 import 'swiper/dist/css/swiper.css'
 
 Vue.use(VueLazyload, {
-  preLoad: 1.4,
+  preLoad: 1.2,
   loading: 'src/assets/imgs/loading.gif',
   attempt: 1
 })

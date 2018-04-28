@@ -6,8 +6,10 @@
     <keep-alive>
       <router-view class="app-main"></router-view>
     </keep-alive>
-    <!-- <Display /> -->
-    <!-- <tab class="app-tab" ></tab> -->
+    <div class="upload">
+      <input type="file" webkitdirectory multiple @change="handleInputFile">
+      <img src="./assets/imgs/upload.png" alt="" ref="img">
+    </div>
   </div>
 </template>
 
@@ -25,24 +27,12 @@ export default {
   },
   data () {
     return {
-      // gender: 'male',
-      vm: {},
-      resources: [
-        [
-          'https://cosplay.yangcong345.com/1010021/head_cloth_1_ske.json',
-          'https://cosplay.yangcong345.com/1010021/head_cloth_1_tex.json',
-          'https://cosplay.yangcong345.com/1010021/head_cloth_1_tex.png'
-        ],
-        [
-          'https://cosplay.yangcong345.com/1010021/head_cloth_ske.json',
-          'https://cosplay.yangcong345.com/1010021/head_cloth_tex.json',
-          'https://cosplay.yangcong345.com/1010021/head_cloth_tex.png'
-        ]
-      ]
+      vm: {}
     }
   },
   mounted () {
     this.bindEvents()
+    // console.log(this.$refs.img.src)
   },
   computed: {
     ...mapState(['gender']),
@@ -53,7 +43,6 @@ export default {
   methods: {
     loaded () {
       this.vm = this.$refs.iframe.contentWindow
-      console.log(this.vm)
       window.vm = this.vm
       // setTimeout(() => {
       //   this.vm.COSPLAY_STAGE.setSlotDisplay('head_cloth_1', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_ske.json', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_tex.json', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_tex.png')
@@ -72,6 +61,35 @@ export default {
       window.onresize = () => {
         this.vm.location.reload()
       }
+    },
+    handleInputFile (e) {
+      console.log(e.target.files)
+      // this.$refs.img.src = 'http://tpc.googlesyndication.com/daca_images/simgad/4985974306114514385'
+      // var files = e.target.files
+      // for (var i = 0, f; f = files[i]; i++) {
+
+      //   // Only process image files.
+      //   if (!f.type.match('image.*')) {
+      //     continue;
+      //   }
+
+      //   var reader = new FileReader();
+
+      //   // Closure to capture the file information.
+      //   reader.onload = (function(theFile) {
+      //     return function(event) {
+      //       // Render thumbnail.
+      //       // var span = document.createElement('span');
+      //       // span.innerHTML = ['<img class="thumb" src="', e.target.result,
+      //       //                   '" title="', escape(theFile.name), '"/>'].join('');
+      //       // document.getElementById('list').insertBefore(span, null);
+      //       this.$refs.img.src = event.target.result
+      //     };
+      //   })(f);
+
+      //   // Read in the image file as a data URL.
+      //   reader.readAsDataURL(f);
+      // }
     }
   }
 }
@@ -107,4 +125,16 @@ export default {
       width 72%
       margin 0 auto
       overflow hidden
+    .upload
+      position absolute
+      top 40%
+      right 20%
+      img 
+        width 50px
+      input
+        width 50px
+        height 50px
+        opacity 0
+        position absolute
+        right 0
 </style>
