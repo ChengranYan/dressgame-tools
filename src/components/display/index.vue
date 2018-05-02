@@ -162,7 +162,7 @@ export default{
       this.$http({
         method: 'get',
         // url: 'https://api-test.yangcong345.com/cosplay/handbook',
-        url: 'http://localhost:60000/cosplay/handbook/testcontent'
+        url: 'http://10.8.8.8:60000/cosplay/handbook/testcontent'
       }).then((res) => {
         console.log(res.data)
         this.testData = res.data.data
