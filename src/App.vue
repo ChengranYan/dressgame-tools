@@ -6,10 +6,10 @@
     <keep-alive>
       <router-view class="app-main"></router-view>
     </keep-alive>
-    <div class="upload">
-      <input type="file" webkitdirectory multiple @change="handleInputFile">
+    <!-- <div class="upload">
+      <input type="file" multiple webkitdirectory @change="handleInputFile">
       <img src="./assets/imgs/upload.png" alt="" ref="img">
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -32,30 +32,17 @@ export default {
   },
   mounted () {
     this.bindEvents()
-    // console.log(this.$refs.img.src)
   },
   computed: {
     ...mapState(['gender']),
     cosplayUri () {
-      return `http://localhost:8080/static/index.html?gender=${this.gender}`
+      return `/static/index.html?gender=${this.gender}`
     }
   },
   methods: {
     loaded () {
       this.vm = this.$refs.iframe.contentWindow
       window.vm = this.vm
-      // setTimeout(() => {
-      //   this.vm.COSPLAY_STAGE.setSlotDisplay('head_cloth_1', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_ske.json', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_tex.json', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_tex.png')
-      //   this.vm.COSPLAY_STAGE.setSlotDisplay('head_cloth', 'https://cosplay.yangcong345.com/1010025/head_cloth_ske.json', 'https://cosplay.yangcong345.com/1010025/head_cloth_tex.json', 'https://cosplay.yangcong345.com/1010025/head_cloth_tex.png')
-      // }, 500)
-      // setTimeout(() => {
-      //   this.vm.COSPLAY_STAGE.setAvatarBackground('https://cosplay.yangcong345.com/1060006/background.png')
-      // }, 5000)
-      // setTimeout(() => {
-      //   this.vm.COSPLAY_STAGE.setDefaultSlot('head')
-      // }, 10000)
-      // slotName, skeData, texData, texture
-      // vm.COSPLAY.setSlotDisplay('head_cloth_1', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_ske.json', 'https://cosplay.yangcong345.com/1010025/head_cloth_1_tex.json')
     },
     bindEvents () {
       window.onresize = () => {
@@ -63,33 +50,19 @@ export default {
       }
     },
     handleInputFile (e) {
-      console.log(e.target.files)
-      // this.$refs.img.src = 'http://tpc.googlesyndication.com/daca_images/simgad/4985974306114514385'
-      // var files = e.target.files
-      // for (var i = 0, f; f = files[i]; i++) {
-
-      //   // Only process image files.
-      //   if (!f.type.match('image.*')) {
-      //     continue;
-      //   }
-
-      //   var reader = new FileReader();
-
-      //   // Closure to capture the file information.
-      //   reader.onload = (function(theFile) {
-      //     return function(event) {
-      //       // Render thumbnail.
-      //       // var span = document.createElement('span');
-      //       // span.innerHTML = ['<img class="thumb" src="', e.target.result,
-      //       //                   '" title="', escape(theFile.name), '"/>'].join('');
-      //       // document.getElementById('list').insertBefore(span, null);
-      //       this.$refs.img.src = event.target.result
-      //     };
-      //   })(f);
-
-      //   // Read in the image file as a data URL.
-      //   reader.readAsDataURL(f);
-      // }
+      const data = new FormData()
+      data.append('logo', e.target.files)
+      // data.append('param', 0)
+      // data.append('secondParam', 0)
+      // data.append('file', new Blob(['test payload'], { type: 'text/csv' }))
+      for (let index = 0; index < e.target.files.length; index++) {
+        const element = e.target.files[index]
+        data.append('logo', element)
+      }
+      this.$http.post('http://localhost:6000/cosplay/handbook/upload', data)
+          .catch((err) => {
+            console.log('error' + err)
+          })
     }
   }
 }
@@ -108,13 +81,6 @@ export default {
       width 100%
       height 50%
       border 0
-    // .app-tab
-    //   position: fixed
-    //   bottom: 0
-    //   left: 0
-    //   right: 0
-    //   height: 1.03rem
-    //   background: #fff
     .head-bar
       width 66%
       margin 0 auto 

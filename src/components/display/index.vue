@@ -1,6 +1,18 @@
 <template>
   <div class="wrapper">
-    <template v-if="isMale">
+    <template v-if="isTest">
+      <ul>
+        <li v-for="(item, index) in testData" :key="index" v-if="item.thumbnail">
+          <div class="img-con" @click="handleTestDressUp(index)">
+            <img :src="item.thumbnail">
+          </div>
+          <p>
+            <span>{{item.name}}</span>
+          </p>
+        </li>
+      </ul>
+    </template>
+    <template v-if="!isTest && isMale">
       <ul>
         <li v-for="item in maleclothes[part].rows" :key="item.id" v-if="item.thumbnail">
           <div class="img-con" @click="handleDressUp(item.id, item.thumbnail, $event)">
@@ -12,7 +24,7 @@
         </li>
       </ul>
     </template>
-    <template v-else>
+    <template v-if="!isTest && !isMale">
       <ul>
         <li v-for="item in femaleclothes[part].rows" :key="item.id" v-if="item.thumbnail">
           <div class="img-con" @click="handleDressUp(item.id, item.thumbnail, $event)">
@@ -41,6 +53,7 @@ export default{
           rows: []
         }
       },
+      testData: [],
       background_reg: /background_/,
       decorate_reg: /decoration_cloth_/,
       head_frame_reg: /head_frame_/,
@@ -62,9 +75,12 @@ export default{
     isMale () {
       return this.gender === 'male'
     },
+    isTest () {
+      return this.part === 'test'
+    },
     detailUrl () {
-      // return `https://api-test.yangcong345.com/cosplay/handbook/${this.part}/${this.detailId}`
-      return `http://localhost:3000/cosplay/handbook/${this.part}/${this.detailId}`
+      return `https://api-test.yangcong345.com/cosplay/handbook/${this.part}/${this.detailId}`
+      // return `http://localhost:3000/cosplay/handbook/${this.part}/${this.detailId}`
     },
     token () {
       return this.gender === 'male' ? this.maleToken : this.femaleToken
@@ -74,6 +90,7 @@ export default{
     this.scroll = new BScroll('.wrapper')
     this.getDress('male')
     this.getDress('female')
+    this.getTestData()
   },
   methods: {
     ...mapMutations(['changeGender']),
@@ -98,6 +115,9 @@ export default{
         }
       })
     },
+    handleTestDressUp (index) {
+      window.vm.COSPLAY_STAGE.setSlotDisplayByResources(this.testData[index].resources)
+    },
     handleDecorateDressUp (name, resources) {
       if (this.isBackground(name)) {
         this.setBackground(resources)
@@ -112,8 +132,8 @@ export default{
     getDress (gender) {
       this.$http({
         method: 'get',
-        // url: 'https://api-test.yangcong345.com/cosplay/handbook',
-        url: 'http://localhost:3000/cosplay/handbook',
+        url: 'https://api-test.yangcong345.com/cosplay/handbook',
+        // url: 'http://localhost:3000/cosplay/handbook',
         headers: {
           Authorization: gender === 'male' ? this.maleToken : this.femaleToken
         }
@@ -137,6 +157,16 @@ export default{
     },
     isHeadFrame (name) {
       return this.head_frame_reg.test(name)
+    },
+    getTestData () {
+      this.$http({
+        method: 'get',
+        // url: 'https://api-test.yangcong345.com/cosplay/handbook',
+        url: 'http://localhost:60000/cosplay/handbook/testcontent'
+      }).then((res) => {
+        console.log(res.data)
+        this.testData = res.data.data
+      })
     }
   }
 }
