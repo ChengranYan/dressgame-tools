@@ -3,7 +3,7 @@
     <template v-if="isTest">
       <ul>
         <li v-for="(item, index) in testData" :key="index" v-if="item.thumbnail">
-          <div class="img-con" @click="handleTestDressUp(index)">
+          <div class="img-con" @click="handleTestDressUp(index, item.thumbnail)" isdressed="false" :ref="item.thumbnail">
             <img :src="item.thumbnail">
           </div>
           <p>
@@ -15,7 +15,7 @@
     <template v-if="!isTest && isMale">
       <ul>
         <li v-for="item in maleclothes[part].rows" :key="item.id" v-if="item.thumbnail">
-          <div class="img-con" @click="handleDressUp(item.id, item.thumbnail, $event)">
+          <div class="img-con" @click="handleDressUp(item.id, item.thumbnail, $event)" isdressed="false" :ref="item.id">
             <img :src="item.thumbnail" :data-id="item.id">
           </div>
           <p>
@@ -27,7 +27,7 @@
     <template v-if="!isTest && !isMale">
       <ul>
         <li v-for="item in femaleclothes[part].rows" :key="item.id" v-if="item.thumbnail">
-          <div class="img-con" @click="handleDressUp(item.id, item.thumbnail, $event)">
+          <div class="img-con" @click="handleDressUp(item.id, item.thumbnail, $event)" isdressed="false" :ref="item.id">
             <img :src="item.thumbnail" :data-id="item.id">
           </div>
           <p>{{item.name}}</p>
@@ -95,30 +95,57 @@ export default{
   methods: {
     ...mapMutations(['changeGender']),
     handleDressUp (id, name, e) {
-      if (this.inFrameStatus) {
-        window.vm.COSPLAY_STAGE.exitAvatar()
-        this.inFrameStatus = false
+      if (this.$refs[id][0].attributes['isdressed'].value === 'true' && this.part !== 'decorate') {
+        window.vm.COSPLAY_STAGE.setDefaultSlot(this.part)
+        this.$refs[id][0].attributes['isdressed'].value = 'false'
+      } else {
+        if (this.inFrameStatus) {
+          window.vm.COSPLAY_STAGE.exitAvatar()
+          this.inFrameStatus = false
+        }
+        this.detailId = id
+        this.$http({
+          method: 'get',
+          url: this.detailUrl,
+          headers: {
+            Authorization: this.token
+          }
+        }).then((res) => {
+          var { data } = res
+          if (this.part === 'decorate' || this.part === 'background') {
+            this.handleDecorateDressUp(name, data.resources, id)
+          } else {
+            window.vm.COSPLAY_STAGE.setSlotDisplayByResources(data.resources)
+            this.$refs[id][0].attributes['isdressed'].value = 'true'
+          }
+        })
       }
-      this.detailId = id
-      this.$http({
-        method: 'get',
-        url: this.detailUrl,
-        headers: {
-          Authorization: this.token
-        }
-      }).then((res) => {
-        var { data } = res
-        if (this.part === 'decorate' || this.part === 'background') {
-          this.handleDecorateDressUp(name, data.resources)
-        } else {
-          window.vm.COSPLAY_STAGE.setSlotDisplayByResources(data.resources)
-        }
-      })
     },
-    handleTestDressUp (index) {
-      window.vm.COSPLAY_STAGE.setSlotDisplayByResources(this.testData[index].resources)
+    handleTestDressUp (index, id) {
+      if (this.$refs[id][0].attributes['isdressed'].value === 'true') {
+        window.vm.COSPLAY_STAGE.setDefaultSlot(this.partReturn(id))
+        this.$refs[id][0].attributes['isdressed'].value = 'false'
+      } else {
+        window.vm.COSPLAY_STAGE.setSlotDisplayByResources(this.testData[index].resources)
+        this.$refs[id][0].attributes['isdressed'].value = 'true'
+      }
     },
-    handleDecorateDressUp (name, resources) {
+    partReturn (name) {
+      if (/head/.test(name)) {
+        return 'head'
+      } else if (/body/.test(name)) {
+        return 'body'
+      } else if (/leg/.test(name)) {
+        return 'leg'
+      } else if (/foot/.test(name)) {
+        return 'foot'
+      } else if (/decoration_cloth/.test(name)) {
+        return 'bonusDecorate'
+      } else {
+        return ''
+      }
+    },
+    handleDecorateDressUp (name, resources, id) {
       if (this.isBackground(name)) {
         this.setBackground(resources)
       } else if (this.isHeadFrame(name)) {
@@ -126,7 +153,14 @@ export default{
         window.vm.COSPLAY_STAGE.entryAvatar(resources.back, resources.front)
         // window.vm.COSPLAY_STAGE.setAvatarBackground(resources.back, resources.font)
       } else if (this.isDecorateCloth(name)) {
-        window.vm.COSPLAY_STAGE.setSlotDisplayByResources(resources)
+        if (this.$refs[id][0].attributes['isdressed'].value === 'true') {
+          window.vm.COSPLAY_STAGE.setDefaultSlot('bonusDecorate')
+          this.$refs[id][0].attributes['isdressed'].value = 'false'
+        } else {
+          window.vm.COSPLAY_STAGE.setSlotDisplayByResources(resources)
+          this.$refs[id][0].attributes['isdressed'].value = 'true'
+          // alert(this.$refs[id][0].attributes['isdressed'].value)
+        }
       }
     },
     getDress (gender) {
@@ -164,7 +198,7 @@ export default{
         // url: 'https://api-test.yangcong345.com/cosplay/handbook',
         url: 'http://10.8.8.8:60000/cosplay/handbook/testcontent'
       }).then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         this.testData = res.data.data
       })
     }

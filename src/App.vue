@@ -43,6 +43,9 @@ export default {
     loaded () {
       this.vm = this.$refs.iframe.contentWindow
       window.vm = this.vm
+      setTimeout(() => {
+        this.vm.COSPLAY_STAGE.playBoneAnimation()
+      }, 500)
     },
     bindEvents () {
       window.onresize = () => {
