@@ -53,7 +53,8 @@ export default{
           rows: []
         }
       },
-      testData: [],
+      testMaleData: [],
+      testFemaleData: [],
       background_reg: /background_/,
       decorate_reg: /decoration_cloth_/,
       head_frame_reg: /head_frame_/,
@@ -77,6 +78,13 @@ export default{
     },
     isTest () {
       return this.part === 'test'
+    },
+    testData () {
+      if (this.gender === 'male') {
+        return this.testMaleData
+      } else {
+        return this.testFemaleData
+      }
     },
     detailUrl () {
       return `https://api-test.yangcong345.com/cosplay/handbook/${this.part}/${this.detailId}`
@@ -198,8 +206,10 @@ export default{
         // url: 'https://api-test.yangcong345.com/cosplay/handbook',
         url: 'http://10.8.8.8:60000/cosplay/handbook/testcontent'
       }).then((res) => {
-        // console.log(res.data)
-        this.testData = res.data.data
+        console.log(res.data)
+        this.testMaleData = res.data.maleData
+        this.testFemaleData = res.data.femaleData
+        // this.testData = res.data.data
       })
     }
   }

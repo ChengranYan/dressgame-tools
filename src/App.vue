@@ -2,7 +2,7 @@
   <div id="app">
     <iframe class="iframe" ref="iframe" :src="cosplayUri" @load="loaded"></iframe>
     <Tab />
-    <HeadBar class="head-bar"/>
+    <HeadBar class="head-bar" ref="headbar" />
     <keep-alive>
       <router-view class="app-main"></router-view>
     </keep-alive>
@@ -32,11 +32,15 @@ export default {
   },
   mounted () {
     this.bindEvents()
+    this.setWidth()
   },
   computed: {
     ...mapState(['gender']),
     cosplayUri () {
       return `/static/index.html?gender=${this.gender}`
+    },
+    width () {
+      return window.innerHeight / 2 * 2.5
     }
   },
   methods: {
@@ -46,6 +50,11 @@ export default {
       setTimeout(() => {
         this.vm.COSPLAY_STAGE.playBoneAnimation()
       }, 500)
+    },
+    setWidth () {
+      // console.log(this.width)
+      // console.log(this.$refs.headbar.$el.style.clientWidth)
+      // this.$refs.headbar.$el.style.width = this.width
     },
     bindEvents () {
       window.onresize = () => {

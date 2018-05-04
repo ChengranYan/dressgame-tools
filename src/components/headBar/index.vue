@@ -1,5 +1,5 @@
 <template>
-  <ul class="head-bar-con">
+  <ul class="head-bar-con" ref="container">
     <router-link v-for="(part, index) in parts" class="head-bar" :to="part.to" tag="li" :key="index">
         <span class="part">{{ part.name }}</span>
     </router-link>
@@ -42,9 +42,17 @@
           // }
         ],
         test: {
-          name: 'test',
+          name: '测试',
           to: 'test'
         }
+      }
+    },
+    mounted () {
+      this.setWidth()
+    },
+    methods: {
+      setWidth () {
+        this.$refs.container.style.width = window.innerHeight / 2 * 2.5 + 'px'
       }
     }
   }
